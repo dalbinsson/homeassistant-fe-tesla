@@ -13,9 +13,24 @@ cards:
       type: custom:stack-in-card
       cards:
         - type: picture-elements
-          image: /local/Tesla/homeassistant-fe-tesla/images/models/y/silver/baseWide.jpg
+          image: >-
+            /local/Tesla/homeassistant-fe-tesla/images/models/y/silver/baseWide.jpg
           entity: button.force_data_update
           elements:
+            - type: conditional
+              conditions:
+                - entity: cover.charger_door
+                  state: open
+              elements:
+                - type: image
+                  title: Charger_Door_Body
+                  style:
+                    top: 55.2%
+                    left: 50.9%
+                    width: 298px
+                    height: 298px
+                  image: >-
+                    /local/Tesla/homeassistant-fe-tesla/images/models/y/silver/baseChargeportOpened.jpg
             - type: state-label
               entity: sensor.range
               style:
@@ -52,8 +67,10 @@ cards:
                 width: 40px
                 height: 40px
               state_image:
-                locked: /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Door_Lock.jpg
-                unlocked: /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Door_Unlock.jpg
+                locked: >-
+                  /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Door_Lock.jpg
+                unlocked: >-
+                  /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Door_Unlock.jpg
               tap_action:
                 action: toggle
               entity: lock.doors
@@ -61,14 +78,16 @@ cards:
               hold_action: none
             - type: image
               title: ClimateIcon
-              image: /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Climate_Fan_On.jpg
+              image: >-
+                /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Climate_Fan_On.jpg
               style:
                 top: 50%
                 left: 90%
                 width: 40px
                 height: 40px
               state_image:
-                'off': /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Climate_Fan_Off.jpg
+                'off': >-
+                  /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Climate_Fan_Off.jpg
               tap_action:
                 action: toggle
               entity: climate.hvac_climate_system
@@ -76,7 +95,8 @@ cards:
               hold_action: none
             - type: image
               title: Unlock
-              image: /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Charge_Port_Closed.jpg
+              image: >-
+                /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Charge_Port_Closed.jpg
               style:
                 top: 72%
                 left: 90%
@@ -87,29 +107,18 @@ cards:
               entity: input_boolean.tesla_charger_menu
               double_tap_action: none
               hold_action: none
-            - type: conditional
-              conditions:
-                - entity: cover.charger_door
-                  state: open
-              elements:
-                - type: image
-                  title: Charger_Door_Body
-                  style:
-                    top: 55.2%
-                    left: 50.9%
-                    width: 298px
-                    height: 298px
-                  image: /local/Tesla/homeassistant-fe-tesla/images/models/y/silver/baseChargeportOpened.jpg
             - type: image
               title: Frunk
-              image: /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Frunk_Closed.jpg
+              image: >-
+                /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Frunk_Closed.jpg
               style:
                 top: 90%
                 left: 90%
                 width: 40px
                 height: 40px
               state_image:
-                opened: /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Frunk_Opened.jpg
+                opened: >-
+                  /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Frunk_Opened.jpg
               tap_action:
                 action: toggle
               entity: cover.frunk
@@ -127,7 +136,8 @@ cards:
                     left: 50.9%
                     width: 288px
                     height: 288px
-                  image: /local/Tesla/homeassistant-fe-tesla/images/models/y/silver/baseFrunkOpened.jpg
+                  image: >-
+                    /local/Tesla/homeassistant-fe-tesla/images/models/y/silver/baseFrunkOpened.jpg
             - type: conditional
               conditions:
                 - entity: cover.charger_door
@@ -162,7 +172,7 @@ cards:
                   state: 'on'
               elements:
                 - type: state-label
-                  entity: sensor.charging_rate
+                  entity: sensor.charger_power
                   tap_action: none
                   double_tap_action: none
                   hold_action: none
@@ -191,11 +201,12 @@ cards:
                     color: '#039be5'
             - type: image
               title: Controls
-              image: /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Controls_Button_Stateless.jpg
+              image: >-
+                /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Controls_Button_Stateless.jpg
               style:
                 top: 80%
                 left: 42%
-                width: 400px
+                width: 350px
                 height: 100px
               tap_action:
                 action: toggle
@@ -209,12 +220,13 @@ cards:
               elements:
                 - type: image
                   title: ClimateControls
-                  image: /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Climate_Button_Off.jpg
+                  image: >-
+                    /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Climate_Button_Off.jpg
                   style:
                     font-family: gotham
                     top: 96%
                     left: 42%
-                    width: 400px
+                    width: 350px
                     height: 100px
                   tap_action:
                     action: toggle
@@ -228,7 +240,8 @@ cards:
               elements:
                 - type: image
                   title: ClimateControls
-                  image: /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Climate_Button_On.jpg
+                  image: >-
+                    /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Climate_Button_On.jpg
                   style:
                     font-family: gotham
                     top: 96%
@@ -250,7 +263,7 @@ cards:
                   style:
                     top: 94.44%
                     left: 41.3%
-                    font-size: 97%
+                    font-size: 90%
                     color: '#8a8a8d'
                     font-family: gotham
             - type: conditional
@@ -261,9 +274,9 @@ cards:
                 - type: state-label
                   entity: sensor.temperature_inside
                   style:
-                    top: 94.44%
-                    left: 30.3%
-                    font-size: 97%
+                    top: 93.44%
+                    left: 32.3%
+                    font-size: 90%
                     color: '#8a8a8d'
                     font-family: gotham
             - type: conditional
@@ -312,9 +325,8 @@ cards:
                 Charge limit: <font color=white>
                 {{states('number.charge_limit')}} % </font>
 
-                <font color=#8a8a8d>
-                {{state_attr('sensor.energy_added', 'added_range')}} km
-                added during last charging session </font>  
+                <font color=#8a8a8d> {{state_attr('sensor.energy_added',
+                'added_range')}} km added during last charging session </font>  
               card_mod:
                 style: |
                   ha-card {
@@ -396,7 +408,8 @@ cards:
         - type: horizontal-stack
           cards:
             - type: picture-elements
-              image: /local/Tesla/homeassistant-fe-tesla/images/models/y/silver/controlsBackground.jpg
+              image: >-
+                /local/Tesla/homeassistant-fe-tesla/images/models/y/silver/controlsBackground.jpg
               entity: button.force_data_update
               elements:
                 - type: state-label
@@ -417,7 +430,8 @@ cards:
                 - type: image
                   title: Flash
                   entity: button.flash_lights
-                  image: /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Flash_Lights_Button.jpg
+                  image: >-
+                    /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Flash_Lights_Button.jpg
                   style:
                     top: 20%
                     left: 70%
@@ -434,7 +448,8 @@ cards:
                 - type: image
                   title: Horn
                   entity: button.horn
-                  image: /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Horn_Button.jpg
+                  image: >-
+                    /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Horn_Button.jpg
                   style:
                     top: 40%
                     left: 70%
@@ -450,7 +465,8 @@ cards:
                   hold_action: none
                 - type: image
                   title: Remote Start
-                  image: /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Remote_Start_Button_Off.jpg
+                  image: >-
+                    /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Remote_Start_Button_Off.jpg
                   style:
                     top: 60%
                     left: 70%
@@ -467,8 +483,10 @@ cards:
                 - type: image
                   title: Vent
                   state_image:
-                    opened: /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Close_Windows_Button.jpg
-                    closed: /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Vent_Windows_Button.jpg
+                    opened: >-
+                      /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Close_Windows_Button.jpg
+                    closed: >-
+                      /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Vent_Windows_Button.jpg
                   style:
                     top: 80%
                     left: 70%
@@ -512,7 +530,8 @@ cards:
                 - type: image
                   title: Heated_Seat_Left
                   entity: select.heated_seat_left
-                  image: /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Heated_Seat_Off.jpg
+                  image: >-
+                    /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Heated_Seat_Off.jpg
                   style:
                     top: 31%
                     left: 25.9%
@@ -529,7 +548,8 @@ cards:
                 - type: image
                   title: Heated_Seat_Right
                   entity: select.heated_seat_right
-                  image: /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Heated_Seat_Off.jpg
+                  image: >-
+                    /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Heated_Seat_Off.jpg
                   style:
                     top: 31%
                     left: 38%
@@ -546,7 +566,8 @@ cards:
                 - type: image
                   title: Heated_Seat_Rear_Left
                   entity: select.heated_seat_rear_left
-                  image: /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Heated_Seat_Off.jpg
+                  image: >-
+                    /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Heated_Seat_Off.jpg
                   style:
                     top: 50%
                     left: 25.9%
@@ -563,7 +584,8 @@ cards:
                 - type: image
                   title: Heated_Seat_Rear_Center
                   entity: select.heated_seat_rear_center
-                  image: /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Heated_Seat_Off.jpg
+                  image: >-
+                    /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Heated_Seat_Off.jpg
                   style:
                     top: 50%
                     left: 31.5%
@@ -580,7 +602,8 @@ cards:
                 - type: image
                   title: Heated_Seat_Rear_Right
                   entity: select.heated_seat_rear_right
-                  image: /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Heated_Seat_Off.jpg
+                  image: >-
+                    /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Heated_Seat_Off.jpg
                   style:
                     top: 50%
                     left: 37.2%
@@ -615,7 +638,8 @@ cards:
                 - type: image
                   title: Climate
                   entity: climate.hvac_climate_system
-                  image: /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Climate_Button_Power_Off.jpg
+                  image: >-
+                    /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Climate_Button_Power_Off.jpg
                   style:
                     top: 40%
                     left: 58%
@@ -638,7 +662,8 @@ cards:
                 - type: image
                   title: Vent_Windows
                   entity: cover.windows
-                  image: /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Vent_Windows_Button.jpg
+                  image: >-
+                    /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Vent_Windows_Button.jpg
                   style:
                     top: 41%
                     left: 90.5%
@@ -651,7 +676,8 @@ cards:
                 - type: image
                   title: Defrost
                   entity: cover.windows
-                  image: /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Climate_Button_Defrost_Off_324.jpg
+                  image: >-
+                    /local/Tesla/homeassistant-fe-tesla/images/buttons/Tesla_Climate_Button_Defrost_Off_324.jpg
                   style:
                     top: 77%
                     left: 74.5%
@@ -663,7 +689,8 @@ cards:
                   hold_action: none
                 - type: image
                   title: Defrost
-                  image: /local/Tesla/homeassistant-fe-tesla/images/buttons/Telsa_Back_Button.jpg
+                  image: >-
+                    /local/Tesla/homeassistant-fe-tesla/images/buttons/Telsa_Back_Button.jpg
                   style:
                     top: 8%
                     left: 7%
